@@ -1,0 +1,23 @@
+{
+    "window.autoDetectColorScheme": true,
+    "workbench.preferredLightColorTheme": "Solarized Light",
+    "workbench.colorCustomizations": {
+        "[Solarized Light]": {
+            "editor.lineHighlightBackground": "#00000000",
+            "editor.lineHighlightBorder": "#00000000"
+        },
+        "[Default Dark Modern]": {
+            "editor.lineHighlightBackground": "#00000000",
+            "editor.lineHighlightBorder": "#00000000"
+        }
+    },
+    "editor.fontFamily": "FiraCode Nerd Font",
+    "editor.fontLigatures": true,
+    "editor.guides.highlightActiveIndentation": false,
+    "editor.guides.indentation": false,
+    "editor.lineNumbers": "off",
+    "editor.minimap.enabled": false,
+    "editor.padding.top": 20,
+    "editor.occurrencesHighlight": "off",
+    "editor.renderWhitespace": "Selection"
+}

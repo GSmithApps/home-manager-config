@@ -60,6 +60,7 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".config/Code/User/settings.json".text = builtins.readFile ./vscode.json;
   };
 
   # Home Manager can also manage your environment variables through
