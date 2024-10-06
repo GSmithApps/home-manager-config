@@ -106,7 +106,7 @@
   programs.kitty = {
     enable = true;
     settings = {
-      background-opacity = "0.8";
+      background_opacity = "0.8";
       font_family = "FiraCode Nerd font";
     };
   };
