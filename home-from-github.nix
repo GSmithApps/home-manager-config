@@ -45,6 +45,7 @@
         hediet.vscode-drawio
       ];
     })
+    vsce
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -60,6 +61,7 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".config/Code/User/settings.json".text = builtins.readFile ./vscode.json;
   };
 
   # Home Manager can also manage your environment variables through
@@ -84,10 +86,18 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
+  
   nixpkgs.config.allowUnfree = true;
-  
-  
+
+  programs.zsh = {
+    enable = true;
+    oh-my-zsh = {
+      enable = true;
+      theme = "agnoster";
+      plugins = ["git"];
+    };
+  };
+
   programs.git = {
     enable = true;
     userName = "GSmithApps";
@@ -101,5 +111,5 @@
       font_family = "FiraCode Nerd font";
     };
   };
-  
+
 }
