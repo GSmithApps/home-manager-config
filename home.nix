@@ -60,6 +60,7 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".config/Code/User/settings.json".text = builtins.readFile ./vscode.json;
   };
 
   # Home Manager can also manage your environment variables through
@@ -87,6 +88,14 @@
 
   nixpkgs.config.allowUnfree = true;
   
+  programs.zsh = {
+    enable = true;
+    oh-my-zsh = {
+      enable = true;
+      theme = "agnoster";
+      plugins = ["git"];
+    };
+  };
   
   programs.git = {
     enable = true;
