@@ -124,5 +124,9 @@
   programs.tmux = {
     enable = true;
   };
+
+  programs.neovim = {
+    enable = true;
+  };
   
 }
