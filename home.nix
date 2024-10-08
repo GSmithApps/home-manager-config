@@ -110,5 +110,16 @@
       font_family = "FiraCode Nerd font";
     };
   };
+
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      window.opacity = 0.9;
+    };
+  };
+
+  programs.tmux = {
+    enable = true;
+  };
   
 }
