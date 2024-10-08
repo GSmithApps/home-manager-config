@@ -115,6 +115,8 @@
     enable = true;
     settings = {
       window.opacity = 0.9;
+      font.normal.family = "FiraCode Nerd font";
+      font.size = 17;
     };
   };
 
