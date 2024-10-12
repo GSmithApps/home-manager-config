@@ -36,6 +36,9 @@
     # '')
     fira-code-nerdfont
     obsidian
+    pdfarranger
+    qpdf
+    wl-clipboard
     (pkgs.vscode-with-extensions.override {
       vscodeExtensions = with pkgs.vscode-extensions; [
         jnoortheen.nix-ide
@@ -80,7 +83,7 @@
   #  /etc/profiles/per-user/grants/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.
@@ -106,7 +109,7 @@
   programs.kitty = {
     enable = true;
     settings = {
-      background_opacity = "0.9";
+      background_opacity = "0.98";
       font_family = "FiraCode Nerd font";
       font_size = 17;
     };
@@ -115,9 +118,9 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      window.opacity = 0.9;
+      window.opacity = 0.98;
       font.normal.family = "FiraCode Nerd font";
-      font.size = 17;
+      font.size = 20;
     };
   };
 
