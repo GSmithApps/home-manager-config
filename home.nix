@@ -39,7 +39,12 @@
     pdfarranger
     qpdf
     wl-clipboard
-    zulu17
+    #nvchad
+      ripgrep
+      gcc13
+      gnumake
+    #java
+      zulu17
     (pkgs.vscode-with-extensions.override {
       vscodeExtensions = with pkgs.vscode-extensions; [
         jnoortheen.nix-ide
