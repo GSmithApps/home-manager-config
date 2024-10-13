@@ -39,6 +39,7 @@
     pdfarranger
     qpdf
     wl-clipboard
+    zulu17
     (pkgs.vscode-with-extensions.override {
       vscodeExtensions = with pkgs.vscode-extensions; [
         jnoortheen.nix-ide
@@ -46,6 +47,14 @@
         mhutchie.git-graph
         mechatroner.rainbow-csv
         hediet.vscode-drawio
+
+        # java things
+          vscjava.vscode-java-pack
+          vscjava.vscode-gradle
+          redhat.java
+          vscjava.vscode-java-test
+          vscjava.vscode-java-debug
+          vscjava.vscode-spring-initializr
       ];
     })
   ];
