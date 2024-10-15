@@ -112,50 +112,56 @@
     EDITOR = "nvim";
   };
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-
   nixpkgs.config.allowUnfree = true;
-  
-  programs.zsh = {
-    enable = true;
-    oh-my-zsh = {
+
+  programs = {
+
+    # Let Home Manager install and manage itself.
+    home-manager = {
       enable = true;
-      theme = "agnoster";
-      plugins = ["git"];
     };
-  };
-  
-  programs.git = {
-    enable = true;
-    userName = "GSmithApps";
-    userEmail = "14.gsmith.14@gmail.com";
-  };
 
-  programs.kitty = {
-    enable = true;
-    settings = {
-      background_opacity = "0.98";
-      font_family = "FiraCode Nerd font";
-      font_size = 17;
+    zsh = {
+      enable = true;
+      oh-my-zsh = {
+        enable = true;
+        theme = "agnoster";
+        plugins = ["git"];
+      };
     };
-  };
 
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      window.opacity = 0.98;
-      font.normal.family = "FiraCode Nerd font";
-      font.size = 20;
+    git = {
+      enable = true;
+      userName = "GSmithApps";
+      userEmail = "14.gsmith.14@gmail.com";
     };
+
+    kitty = {
+      enable = true;
+      settings = {
+        background_opacity = "0.98";
+        font_family = "FiraCode Nerd font";
+        font_size = 17;
+      };
+    };
+
+    alacritty = {
+      enable = true;
+      settings = {
+        window.opacity = 0.98;
+        font.normal.family = "FiraCode Nerd font";
+        font.size = 20;
+      };
+    };
+
+    tmux = {
+      enable = true;
+    };
+
+    neovim = {
+      enable = true;
+    };
+
   };
 
-  programs.tmux = {
-    enable = true;
-  };
-
-  programs.neovim = {
-    enable = true;
-  };
-  
 }
