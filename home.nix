@@ -110,6 +110,7 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
+    DIRENV_LOG_FORMAT="";
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -126,7 +127,10 @@
       oh-my-zsh = {
         enable = true;
         theme = "agnoster";
-        plugins = ["git"];
+        plugins = [
+          "git"
+          "direnv"
+        ];
       };
     };
 
@@ -143,6 +147,12 @@
         font_family = "FiraCode Nerd font";
         font_size = 17;
       };
+    };
+
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
     };
 
     alacritty = {
