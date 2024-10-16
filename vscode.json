@@ -19,5 +19,6 @@
     "editor.minimap.enabled": false,
     "editor.padding.top": 20,
     "editor.occurrencesHighlight": "off",
-    "editor.renderWhitespace": "Selection"
+    "editor.renderWhitespace": "Selection",
+    "files.autoSave": "afterDelay"
 }
