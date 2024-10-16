@@ -34,6 +34,7 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    lazygit
     fira-code-nerdfont
     obsidian
     pdfarranger
@@ -44,7 +45,7 @@
       gcc13
       gnumake
     #java
-      zulu17
+      # zulu17
     (pkgs.vscode-with-extensions.override {
       vscodeExtensions = with pkgs.vscode-extensions; [
         jnoortheen.nix-ide
@@ -54,12 +55,12 @@
         hediet.vscode-drawio
 
         # java things
-          vscjava.vscode-java-pack
-          vscjava.vscode-gradle
-          redhat.java
-          vscjava.vscode-java-test
-          vscjava.vscode-java-debug
-          vscjava.vscode-spring-initializr
+          # vscjava.vscode-java-pack
+          # vscjava.vscode-gradle
+          # redhat.java
+          # vscjava.vscode-java-test
+          # vscjava.vscode-java-debug
+          # vscjava.vscode-spring-initializr
       ];
     })
   ];
