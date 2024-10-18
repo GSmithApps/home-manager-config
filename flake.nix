@@ -61,7 +61,7 @@
                 ];
 
 
-                home.file = {
+                file = {
 
                   ".config/Code/User/settings.json".text = builtins.readFile ./vscode.json;
 
@@ -78,7 +78,7 @@
                   };
                 };
 
-                home.sessionVariables = {
+                sessionVariables = {
                   EDITOR = "nvim";
                   DIRENV_LOG_FORMAT="";
                 };
