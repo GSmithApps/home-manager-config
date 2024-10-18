@@ -14,6 +14,7 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
       in {
+        defaultPackage = home-manager.defaultPackage.${system};
         homeConfigurations.grants = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
