@@ -19,6 +19,7 @@
     "editor.minimap.enabled": false,
     "editor.padding.top": 20,
     "editor.occurrencesHighlight": "off",
-    "editor.renderWhitespace": "Selection",
-    "files.autoSave": "afterDelay"
+    "editor.renderWhitespace": "selection",
+    "files.autoSave": "afterDelay",
+    "diffEditor.ignoreTrimWhitespace": false
 }

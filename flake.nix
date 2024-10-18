@@ -25,7 +25,14 @@
               home = {
                 username = "grants";
                 homeDirectory = "/home/grants";
-                stateVersion = "24.05";
+                # This value determines the Home Manager release that your configuration is
+                # compatible with. This helps avoid breakage when a new Home Manager release
+                # introduces backwards incompatible changes.
+                #
+                # You should not change this value, even if you update Home Manager. If you do
+                # want to update the value, then make sure to first check the Home Manager
+                # release notes.
+                stateVersion = "24.05"; # Please read the comment before changing.
                 packages = with pkgs; [
                   lazygit
                   fira-code-nerdfont
@@ -33,9 +40,12 @@
                   pdfarranger
                   qpdf
                   wl-clipboard
-                  ripgrep
-                  gcc13
-                  gnumake
+                  #nvchad
+                    ripgrep
+                    gcc13
+                    gnumake
+                  #java
+                    # zulu17
                   (vscode-with-extensions.override {
                     vscodeExtensions = with pkgs.vscode-extensions; [
                       jnoortheen.nix-ide
@@ -43,11 +53,21 @@
                       mhutchie.git-graph
                       mechatroner.rainbow-csv
                       hediet.vscode-drawio
+
+                      # java things
+                        # vscjava.vscode-java-pack
+                        # vscjava.vscode-gradle
+                        # redhat.java
+                        # vscjava.vscode-java-test
+                        # vscjava.vscode-java-debug
+                        # vscjava.vscode-spring-initializr
                     ];
                   })
                 ];
 
+
                 file = {
+
                   ".config/Code/User/settings.json".text = builtins.readFile ./vscode.json;
 
                   ".config/nvim" = {
@@ -55,6 +75,7 @@
                       owner = "NvChad";
                       repo = "starter";
                       rev = "main";
+                      # sha256 = lib.fakeSha256;
                       sha256 = "sha256-SVpep7lVX0isYsUtscvgA7Ga3YXt/2jwQQCYkYadjiM";
                     };
                     recursive = true;
@@ -67,7 +88,10 @@
                 };
               };
               programs = {
-                home-manager.enable = true;
+                # Let Home Manager install and manage itself.
+                home-manager = {
+                  enable = true;
+                };
 
                 zsh = {
                   enable = true;
@@ -111,8 +135,13 @@
                   };
                 };
 
-                tmux.enable = true;
-                neovim.enable = true;
+                tmux = {
+                  enable = true;
+                };
+
+                neovim = {
+                  enable = true;
+                };
               };
             }
           ];
