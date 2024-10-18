@@ -12,10 +12,10 @@
   outputs = { self, nixpkgs, home-manager, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        homeManagerPkgs = home-manager.lib.homeManagerConfiguration;
+        pkgs = nixpkgs.legacyPackages.${system};
       in {
-        homeConfigurations.grants = homeManagerPkgs {
-          pkgs = nixpkgs.legacyPackages.${system};
+        homeConfigurations.grants = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
           modules = [
             {
               home = {
@@ -36,13 +36,13 @@
                   qpdf
                   wl-clipboard
                   #nvchad
-                    ripgrep
-                    gcc13
-                    gnumake
+                  ripgrep
+                  gcc13
+                  gnumake
                   #java
                     # zulu17
-                  (pkgs.vscode-with-extensions.override {
-                    vscodeExtensions = with pkgs.vscode-extensions; [
+                  (vscode-with-extensions.override {
+                    vscodeExtensions = with vscode-extensions; [
                       jnoortheen.nix-ide
                       eamodio.gitlens
                       mhutchie.git-graph
