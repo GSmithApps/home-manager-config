@@ -6,64 +6,48 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, home-manager, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in {
-        defaultPackage = home-manager.defaultPackage.${system};
-        homeConfigurations.grants = home-manager.lib.homeManagerConfiguration {
+  outputs = { self, nixpkgs, home-manager, ... }:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config = { allowUnfree = true; };
+      };
+    in {
+      homeConfigurations = {
+        grants = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
             {
+              nixpkgs.config.allowUnfree = true;
               home = {
                 username = "grants";
                 homeDirectory = "/home/grants";
                 stateVersion = "24.05";
                 packages = with pkgs; [
-                  # # You can also create simple shell scripts directly inside your
-                  # # configuration. For example, this adds a command 'my-hello' to your
-                  # # environment:
-                  # (pkgs.writeShellScriptBin "my-hello" ''
-                  #   echo "Hello, ${config.home.username}!"
-                  # '')
                   lazygit
                   fira-code-nerdfont
                   obsidian
                   pdfarranger
                   qpdf
                   wl-clipboard
-                  #nvchad
                   ripgrep
                   gcc13
                   gnumake
-                  #java
-                    # zulu17
                   (vscode-with-extensions.override {
-                    vscodeExtensions = with vscode-extensions; [
+                    vscodeExtensions = with pkgs.vscode-extensions; [
                       jnoortheen.nix-ide
                       eamodio.gitlens
                       mhutchie.git-graph
                       mechatroner.rainbow-csv
                       hediet.vscode-drawio
-
-                      # java things
-                        # vscjava.vscode-java-pack
-                        # vscjava.vscode-gradle
-                        # redhat.java
-                        # vscjava.vscode-java-test
-                        # vscjava.vscode-java-debug
-                        # vscjava.vscode-spring-initializr
                     ];
                   })
                 ];
 
-
                 file = {
-
                   ".config/Code/User/settings.json".text = builtins.readFile ./vscode.json;
 
                   ".config/nvim" = {
@@ -71,8 +55,6 @@
                       owner = "NvChad";
                       repo = "starter";
                       rev = "main";
-                      # sha256 = "sha256-d0c602f5f155d4d1261609219e9b8a61e936d681";
-                      # sha256 = lib.fakeSha256;
                       sha256 = "sha256-SVpep7lVX0isYsUtscvgA7Ga3YXt/2jwQQCYkYadjiM";
                     };
                     recursive = true;
@@ -84,13 +66,8 @@
                   DIRENV_LOG_FORMAT="";
                 };
               };
-              nixpkgs.config.allowUnfree = true;
               programs = {
-
-                # Let Home Manager install and manage itself.
-                home-manager = {
-                  enable = true;
-                };
+                home-manager.enable = true;
 
                 zsh = {
                   enable = true;
@@ -134,17 +111,12 @@
                   };
                 };
 
-                tmux = {
-                  enable = true;
-                };
-
-                neovim = {
-                  enable = true;
-                };
+                tmux.enable = true;
+                neovim.enable = true;
               };
             }
           ];
         };
-      }
-    );
+      };
+    };
 }
