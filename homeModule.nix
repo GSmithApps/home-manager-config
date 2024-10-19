@@ -14,7 +14,7 @@
     stateVersion = "24.05"; # Please read the comment before changing.
     packages = with pkgs; [
       lazygit
-      cargo
+      audacity
       fira-code-nerdfont
       obsidian
       pdfarranger
