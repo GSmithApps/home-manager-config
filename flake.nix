@@ -21,7 +21,6 @@
           inherit pkgs;
           modules = [
             {
-              nixpkgs.config.allowUnfree = true;
               home = {
                 username = "grants";
                 homeDirectory = "/home/grants";
@@ -35,6 +34,7 @@
                 stateVersion = "24.05"; # Please read the comment before changing.
                 packages = with pkgs; [
                   lazygit
+                  cargo
                   fira-code-nerdfont
                   obsidian
                   pdfarranger
@@ -53,6 +53,7 @@
                       mhutchie.git-graph
                       mechatroner.rainbow-csv
                       hediet.vscode-drawio
+                      rust-lang.rust-analyzer
 
                       # java things
                         # vscjava.vscode-java-pack
