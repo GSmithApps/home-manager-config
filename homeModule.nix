@@ -97,7 +97,7 @@
       settings = {
         background_opacity = "0.98";
         font_family = "FiraCode Nerd font";
-        font_size = 17;
+        # font_size = 17;
       };
     };
 
@@ -112,7 +112,7 @@
       settings = {
         window.opacity = 0.98;
         font.normal.family = "FiraCode Nerd font";
-        font.size = 20;
+        # font.size = 20;
       };
     };
 
